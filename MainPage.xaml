@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeworkApp.MainPage"
+             Title="Анкета">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Фамилия -->
+            <Label Text="Фамилия" FontSize="Medium" />
+            <Entry x:Name="SurnameEntry" Placeholder="Введите фамилию" />
+
+            <!-- Имя -->
+            <Label Text="Имя" FontSize="Medium" />
+            <Entry x:Name="NameEntry" Placeholder="Введите имя" />
+
+            <!-- Отчество -->
+            <Label Text="Отчество" FontSize="Medium" />
+            <Entry x:Name="PatronymicEntry" Placeholder="Введите отчество" />
+
+            <!-- Возраст -->
+            <Label Text="{Binding Source={x:Reference AgeSlider}, Path=Value, StringFormat='Возраст: {0:F0}'}" FontSize="Medium" />
+            <Slider x:Name="AgeSlider" Minimum="1" Maximum="100" Value="1" />
+            <Stepper x:Name="AgeStepper" Minimum="1" Maximum="100" Increment="1" Value="1" />
+
+            <!-- Номер телефона -->
+            <Label Text="Номер телефона" FontSize="Medium" />
+            <Entry x:Name="PhoneNumberEntry" Placeholder="Введите номер телефона" Keyboard="Numeric" TextColor="Red" />
+
+            <!-- Пол -->
+            <Label Text="Пол" FontSize="Medium" />
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <RadioButton x:Name="MaleRadioButton" Content="Мужской" GroupName="Gender" />
+                <RadioButton x:Name="FemaleRadioButton" Content="Женский" GroupName="Gender" />
+            </StackLayout>
+
+            <!-- Согласие с условиями -->
+            <Label Text="Согласие с условиями" FontSize="Medium" />
+            <Switch x:Name="AgreementSwitch" />
+
+            <!-- Отправить -->
+            <Button x:Name="SubmitButton" Text="Отправить" IsEnabled="False" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
